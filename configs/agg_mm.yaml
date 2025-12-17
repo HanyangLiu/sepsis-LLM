@@ -1,0 +1,41 @@
+model_params:
+  name: 'AggMM'
+  embed_size: 128
+  max_codes: 300
+  embed_weights: "icd10_embeddings_128.csv"
+  static_hidden: 64
+  use_pretrain: True
+  freeze_embed: False
+  num_layers: 4
+  num_heads: 8
+  dropout: 0.3
+  multiclass: False
+  focal_loss: True
+  llm_type: microsoft/biogpt # "medicalai/ClinicalBERT", "microsoft/biogpt", "yikuan8/Clinical-Longformer", "emilyalsentzer/Bio_ClinicalBERT", "ruslanmv/Medical-Llama3-8B"
+
+data_params:
+  modalities: [True, True, True, False]  # static, ts, comorbidities, notes
+  max_codes: 300
+  batch_size: 128
+  num_workers: 4
+  task: "AMR"
+  note_type: "hpi"  # "hpi", "assessment", "combined", "full"
+  infection_type: "all"  # "all", "community", "hospital"
+  all_patients: False
+  use_precomputed: True  # use precomputed text embeddings to save GPU memory
+  missing_rate: 0.0
+
+exp_params:
+  LR: 0.0001
+  weight_decay: 0.0
+  scheduler_gamma: 0.95
+  manual_seed: 4
+  patience: 2
+
+trainer_params:
+  max_epochs: 100
+  accelerator: "auto"
+
+logging_params:
+  save_dir: "logs/"
+  name: 'AggMM'
