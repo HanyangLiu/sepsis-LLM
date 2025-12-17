@@ -6,7 +6,7 @@ A comprehensive machine learning framework for predicting antimicrobial resistan
 
 This project implements state-of-the-art multimodal deep learning models to predict antimicrobial resistance patterns in sepsis patients by integrating:
 
-- **Static Data**: Demographics, admission details, comorbidities
+- **Static Data**: Demographics, admission details
 - **Time-Series Data**: Vital signs and laboratory values over time  
 - **Clinical Notes**: Free-text clinical documentation processed with medical LLMs
 - **Comorbidity Codes**: ICD-10 diagnosis codes with learned embeddings
